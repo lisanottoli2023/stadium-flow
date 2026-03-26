@@ -1,0 +1,6 @@
+.env
+.venv
+airflow/logs/
+airflow/plugins/__pycache__/
+dbt/statdium/target/
+dbt/statdium/dbt_packages/
