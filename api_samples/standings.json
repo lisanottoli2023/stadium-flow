@@ -1,0 +1,1 @@
+{"get":"fixtures\/standings","parameters":{"league":"39","season":"2024"},"errors":{"endpoint":"The Fixtures\/standings endpoint does not exist."},"results":0,"paging":{"current":1,"total":1},"response":[]}
