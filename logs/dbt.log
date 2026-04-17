@@ -1,0 +1,32 @@
+[0m12:22:38.600546 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dd8da199bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dd8d9e689b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dd8d9b29160>]}
+
+
+============================== 12:22:38.606124 | 6d291fcb-212d-491b-9e2f-541870f5acfd ==============================
+[0m12:22:38.606124 [info ] [MainThread]: Running with dbt=1.11.7
+[0m12:22:38.607016 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'partial_parse': 'True', 'target_path': 'None', 'debug': 'False', 'version_check': 'True', 'profiles_dir': '/home/lisa/.dbt', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'log_format': 'default', 'use_experimental_parser': 'False', 'quiet': 'False', 'fail_fast': 'False', 'invocation_command': 'dbt run --select stg_fixtures stg_players', 'use_colors': 'True', 'warn_error': 'None', 'no_print': 'None', 'cache_selected_only': 'False', 'empty': 'False', 'introspect': 'True', 'printer_width': '80', 'log_cache_events': 'False', 'log_path': 'logs'}
+[0m12:22:38.607840 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/lisa/stadium-flow/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:22:38.609143 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.074350394, "process_in_blocks": "0", "process_kernel_time": 0.133955, "process_mem_max_rss": "102544", "process_out_blocks": "8", "process_user_time": 1.538485}
+[0m12:22:38.609899 [debug] [MainThread]: Command `dbt run` failed at 12:22:38.609747 after 0.08 seconds
+[0m12:22:38.610481 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dd8d9a6b410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dd8d9653830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dd8da221b20>]}
+[0m12:22:38.611107 [debug] [MainThread]: Flushing usage events
+[0m12:22:39.393460 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:23:03.728851 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70fc9b1cae10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70fc9b457e00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70fc9b728620>]}
+
+
+============================== 12:23:03.732521 | beb28c0c-b401-4d65-b0e9-132483a91932 ==============================
+[0m12:23:03.732521 [info ] [MainThread]: Running with dbt=1.11.7
+[0m12:23:03.733143 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt run --select stg_fixtures', 'target_path': 'None', 'static_parser': 'True', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'version_check': 'True', 'log_path': 'logs', 'use_colors': 'True', 'profiles_dir': '/home/lisa/.dbt', 'log_format': 'default', 'log_cache_events': 'False', 'introspect': 'True', 'printer_width': '80', 'warn_error': 'None', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'no_print': 'None', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'quiet': 'False', 'empty': 'False', 'indirect_selection': 'eager'}
+[0m12:23:03.733714 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/lisa/stadium-flow/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:23:03.734695 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.070916094, "process_in_blocks": "0", "process_kernel_time": 0.139041, "process_mem_max_rss": "102400", "process_out_blocks": "8", "process_user_time": 1.557462}
+[0m12:23:03.735272 [debug] [MainThread]: Command `dbt run` failed at 12:23:03.735159 after 0.07 seconds
+[0m12:23:03.735690 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70fc9af213a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70fc9a54bce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70fc9a957b90>]}
+[0m12:23:03.736124 [debug] [MainThread]: Flushing usage events
+[0m12:23:04.470905 [debug] [MainThread]: An error was encountered while trying to flush usage events
