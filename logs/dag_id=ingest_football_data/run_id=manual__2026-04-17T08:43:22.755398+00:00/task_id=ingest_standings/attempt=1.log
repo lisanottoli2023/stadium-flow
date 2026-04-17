@@ -1,0 +1,174 @@
+[2026-04-17T08:43:23.101+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingest_football_data.ingest_standings manual__2026-04-17T08:43:22.755398+00:00 [queued]>
+[2026-04-17T08:43:23.113+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingest_football_data.ingest_standings manual__2026-04-17T08:43:22.755398+00:00 [queued]>
+[2026-04-17T08:43:23.114+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-04-17T08:43:23.132+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_standings> on 2026-04-17 08:43:22.755398+00:00
+[2026-04-17T08:43:23.142+0000] {standard_task_runner.py:60} INFO - Started process 430 to run task
+[2026-04-17T08:43:23.147+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ingest_football_data', 'ingest_standings', 'manual__2026-04-17T08:43:22.755398+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/ingest_football_data.py', '--cfg-path', '/tmp/tmp_6ybknp6']
+[2026-04-17T08:43:23.149+0000] {standard_task_runner.py:88} INFO - Job 27: Subtask ingest_standings
+[2026-04-17T08:43:23.171+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-04-17T08:43:23.222+0000] {task_command.py:423} INFO - Running <TaskInstance: ingest_football_data.ingest_standings manual__2026-04-17T08:43:22.755398+00:00 [running]> on host bb60f31f47c1
+[2026-04-17T08:43:23.337+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ingest_football_data' AIRFLOW_CTX_TASK_ID='ingest_standings' AIRFLOW_CTX_EXECUTION_DATE='2026-04-17T08:43:22.755398+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-17T08:43:22.755398+00:00'
+[2026-04-17T08:43:23.511+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.516+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 40, '{"rank": 1, "team": {"id": 40, "name": "Liverpool", "logo": "https://media.api-sports.io/football/teams/40.png"}, "points": 84, "goalsDiff": 45, "group": "Premier League", "form": "DLDLW", "status": "same", "description": "Champions League", "all": {"played": 38, "win": 25, "draw": 9, "lose": 4, "goals": {"for": 86, "against": 41}}, "home": {"played": 19, "win": 14, "draw": 4, "lose": 1, "goals": {"for": 42, "against": 16}}, "away": {"played": 19, "win": 11, "draw": 5, "lose": 3, "goals": {"for": 44, "against": 25}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.519+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.530+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.535+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 42, '{"rank": 2, "team": {"id": 42, "name": "Arsenal", "logo": "https://media.api-sports.io/football/teams/42.png"}, "points": 74, "goalsDiff": 35, "group": "Premier League", "form": "WWDLD", "status": "same", "description": "Champions League", "all": {"played": 38, "win": 20, "draw": 14, "lose": 4, "goals": {"for": 69, "against": 34}}, "home": {"played": 19, "win": 11, "draw": 6, "lose": 2, "goals": {"for": 35, "against": 17}}, "away": {"played": 19, "win": 9, "draw": 8, "lose": 2, "goals": {"for": 34, "against": 17}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.537+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.548+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.553+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 50, '{"rank": 3, "team": {"id": 50, "name": "Manchester City", "logo": "https://media.api-sports.io/football/teams/50.png"}, "points": 71, "goalsDiff": 28, "group": "Premier League", "form": "WWDWW", "status": "same", "description": "Champions League", "all": {"played": 38, "win": 21, "draw": 8, "lose": 9, "goals": {"for": 72, "against": 44}}, "home": {"played": 19, "win": 13, "draw": 3, "lose": 3, "goals": {"for": 43, "against": 23}}, "away": {"played": 19, "win": 8, "draw": 5, "lose": 6, "goals": {"for": 29, "against": 21}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.555+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.564+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.569+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 49, '{"rank": 4, "team": {"id": 49, "name": "Chelsea", "logo": "https://media.api-sports.io/football/teams/49.png"}, "points": 69, "goalsDiff": 21, "group": "Premier League", "form": "WWLWW", "status": "same", "description": "Champions League", "all": {"played": 38, "win": 20, "draw": 9, "lose": 9, "goals": {"for": 64, "against": 43}}, "home": {"played": 19, "win": 12, "draw": 5, "lose": 2, "goals": {"for": 35, "against": 18}}, "away": {"played": 19, "win": 8, "draw": 4, "lose": 7, "goals": {"for": 29, "against": 25}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.571+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.583+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.588+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 34, '{"rank": 5, "team": {"id": 34, "name": "Newcastle", "logo": "https://media.api-sports.io/football/teams/34.png"}, "points": 66, "goalsDiff": 21, "group": "Premier League", "form": "LLWDW", "status": "same", "description": "Champions League", "all": {"played": 38, "win": 20, "draw": 6, "lose": 12, "goals": {"for": 68, "against": 47}}, "home": {"played": 19, "win": 12, "draw": 2, "lose": 5, "goals": {"for": 40, "against": 20}}, "away": {"played": 19, "win": 8, "draw": 4, "lose": 7, "goals": {"for": 28, "against": 27}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.590+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.600+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.605+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 66, '{"rank": 6, "team": {"id": 66, "name": "Aston Villa", "logo": "https://media.api-sports.io/football/teams/66.png"}, "points": 66, "goalsDiff": 7, "group": "Premier League", "form": "LWWWL", "status": "same", "description": "UEFA Europa League", "all": {"played": 38, "win": 19, "draw": 9, "lose": 10, "goals": {"for": 58, "against": 51}}, "home": {"played": 19, "win": 11, "draw": 7, "lose": 1, "goals": {"for": 34, "against": 20}}, "away": {"played": 19, "win": 8, "draw": 2, "lose": 9, "goals": {"for": 24, "against": 31}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.607+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.619+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.624+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 65, '{"rank": 7, "team": {"id": 65, "name": "Nottingham Forest", "logo": "https://media.api-sports.io/football/teams/65.png"}, "points": 65, "goalsDiff": 12, "group": "Premier League", "form": "LWDDL", "status": "same", "description": "Conference League Qualification", "all": {"played": 38, "win": 19, "draw": 8, "lose": 11, "goals": {"for": 58, "against": 46}}, "home": {"played": 19, "win": 9, "draw": 5, "lose": 5, "goals": {"for": 26, "against": 16}}, "away": {"played": 19, "win": 10, "draw": 3, "lose": 6, "goals": {"for": 32, "against": 30}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.626+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.636+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.642+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 51, '{"rank": 8, "team": {"id": 51, "name": "Brighton", "logo": "https://media.api-sports.io/football/teams/51.png"}, "points": 61, "goalsDiff": 7, "group": "Premier League", "form": "WWWDW", "status": "same", "description": null, "all": {"played": 38, "win": 16, "draw": 13, "lose": 9, "goals": {"for": 66, "against": 59}}, "home": {"played": 19, "win": 8, "draw": 8, "lose": 3, "goals": {"for": 30, "against": 26}}, "away": {"played": 19, "win": 8, "draw": 5, "lose": 6, "goals": {"for": 36, "against": 33}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.645+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.655+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.661+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 35, '{"rank": 9, "team": {"id": 35, "name": "Bournemouth", "logo": "https://media.api-sports.io/football/teams/35.png"}, "points": 56, "goalsDiff": 12, "group": "Premier League", "form": "WLLWD", "status": "same", "description": null, "all": {"played": 38, "win": 15, "draw": 11, "lose": 12, "goals": {"for": 58, "against": 46}}, "home": {"played": 19, "win": 8, "draw": 4, "lose": 7, "goals": {"for": 23, "against": 16}}, "away": {"played": 19, "win": 7, "draw": 7, "lose": 5, "goals": {"for": 35, "against": 30}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.663+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.674+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.679+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 55, '{"rank": 10, "team": {"id": 55, "name": "Brentford", "logo": "https://media.api-sports.io/football/teams/55.png"}, "points": 56, "goalsDiff": 9, "group": "Premier League", "form": "DLWWW", "status": "same", "description": null, "all": {"played": 38, "win": 16, "draw": 8, "lose": 14, "goals": {"for": 66, "against": 57}}, "home": {"played": 19, "win": 9, "draw": 4, "lose": 6, "goals": {"for": 40, "against": 35}}, "away": {"played": 19, "win": 7, "draw": 4, "lose": 8, "goals": {"for": 26, "against": 22}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.682+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.692+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.697+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 36, '{"rank": 11, "team": {"id": 36, "name": "Fulham", "logo": "https://media.api-sports.io/football/teams/36.png"}, "points": 54, "goalsDiff": 0, "group": "Premier League", "form": "LWLLW", "status": "same", "description": null, "all": {"played": 38, "win": 15, "draw": 9, "lose": 14, "goals": {"for": 54, "against": 54}}, "home": {"played": 19, "win": 7, "draw": 5, "lose": 7, "goals": {"for": 27, "against": 30}}, "away": {"played": 19, "win": 8, "draw": 4, "lose": 7, "goals": {"for": 27, "against": 24}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.699+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.711+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.716+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 52, '{"rank": 12, "team": {"id": 52, "name": "Crystal Palace", "logo": "https://media.api-sports.io/football/teams/52.png"}, "points": 53, "goalsDiff": 0, "group": "Premier League", "form": "DWWDD", "status": "same", "description": "UEFA Europa League", "all": {"played": 38, "win": 13, "draw": 14, "lose": 11, "goals": {"for": 51, "against": 51}}, "home": {"played": 19, "win": 6, "draw": 7, "lose": 6, "goals": {"for": 24, "against": 26}}, "away": {"played": 19, "win": 7, "draw": 7, "lose": 5, "goals": {"for": 27, "against": 25}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.718+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.727+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.732+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 45, '{"rank": 13, "team": {"id": 45, "name": "Everton", "logo": "https://media.api-sports.io/football/teams/45.png"}, "points": 48, "goalsDiff": -2, "group": "Premier League", "form": "WWWDL", "status": "same", "description": null, "all": {"played": 38, "win": 11, "draw": 15, "lose": 12, "goals": {"for": 42, "against": 44}}, "home": {"played": 19, "win": 5, "draw": 9, "lose": 5, "goals": {"for": 26, "against": 23}}, "away": {"played": 19, "win": 6, "draw": 6, "lose": 7, "goals": {"for": 16, "against": 21}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.733+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.746+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.752+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 48, '{"rank": 14, "team": {"id": 48, "name": "West Ham", "logo": "https://media.api-sports.io/football/teams/48.png"}, "points": 43, "goalsDiff": -16, "group": "Premier League", "form": "WLWDL", "status": "same", "description": null, "all": {"played": 38, "win": 11, "draw": 10, "lose": 17, "goals": {"for": 46, "against": 62}}, "home": {"played": 19, "win": 5, "draw": 5, "lose": 9, "goals": {"for": 23, "against": 34}}, "away": {"played": 19, "win": 6, "draw": 5, "lose": 8, "goals": {"for": 23, "against": 28}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.754+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.765+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.770+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 33, '{"rank": 15, "team": {"id": 33, "name": "Manchester United", "logo": "https://media.api-sports.io/football/teams/33.png"}, "points": 42, "goalsDiff": -10, "group": "Premier League", "form": "WLLLD", "status": "same", "description": null, "all": {"played": 38, "win": 11, "draw": 9, "lose": 18, "goals": {"for": 44, "against": 54}}, "home": {"played": 19, "win": 7, "draw": 3, "lose": 9, "goals": {"for": 23, "against": 28}}, "away": {"played": 19, "win": 4, "draw": 6, "lose": 9, "goals": {"for": 21, "against": 26}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.772+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.782+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.787+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 39, '{"rank": 16, "team": {"id": 39, "name": "Wolves", "logo": "https://media.api-sports.io/football/teams/39.png"}, "points": 42, "goalsDiff": -15, "group": "Premier League", "form": "DLLLW", "status": "same", "description": null, "all": {"played": 38, "win": 12, "draw": 6, "lose": 20, "goals": {"for": 54, "against": 69}}, "home": {"played": 19, "win": 6, "draw": 3, "lose": 10, "goals": {"for": 27, "against": 32}}, "away": {"played": 19, "win": 6, "draw": 3, "lose": 10, "goals": {"for": 27, "against": 37}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.789+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.800+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.805+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 47, '{"rank": 17, "team": {"id": 47, "name": "Tottenham", "logo": "https://media.api-sports.io/football/teams/47.png"}, "points": 38, "goalsDiff": -1, "group": "Premier League", "form": "LLLDL", "status": "same", "description": "Champions League", "all": {"played": 38, "win": 11, "draw": 5, "lose": 22, "goals": {"for": 64, "against": 65}}, "home": {"played": 19, "win": 6, "draw": 3, "lose": 10, "goals": {"for": 35, "against": 35}}, "away": {"played": 19, "win": 5, "draw": 2, "lose": 12, "goals": {"for": 29, "against": 30}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.806+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.819+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.824+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 46, '{"rank": 18, "team": {"id": 46, "name": "Leicester", "logo": "https://media.api-sports.io/football/teams/46.png"}, "points": 25, "goalsDiff": -47, "group": "Premier League", "form": "LWDWL", "status": "same", "description": "Relegation", "all": {"played": 38, "win": 6, "draw": 7, "lose": 25, "goals": {"for": 33, "against": 80}}, "home": {"played": 19, "win": 4, "draw": 3, "lose": 12, "goals": {"for": 15, "against": 34}}, "away": {"played": 19, "win": 2, "draw": 4, "lose": 13, "goals": {"for": 18, "against": 46}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.826+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.837+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.841+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 57, '{"rank": 19, "team": {"id": 57, "name": "Ipswich", "logo": "https://media.api-sports.io/football/teams/57.png"}, "points": 22, "goalsDiff": -46, "group": "Premier League", "form": "LLLDL", "status": "same", "description": "Relegation", "all": {"played": 38, "win": 4, "draw": 10, "lose": 24, "goals": {"for": 36, "against": 82}}, "home": {"played": 19, "win": 1, "draw": 4, "lose": 14, "goals": {"for": 14, "against": 44}}, "away": {"played": 19, "win": 3, "draw": 6, "lose": 10, "goals": {"for": 22, "against": 38}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.843+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.854+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-17T08:43:23.859+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO raw.standings (league_id, season, team_id, raw_json)
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (league_id, season, team_id)
+                DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+                , parameters: (39, 2024, 41, '{"rank": 20, "team": {"id": 41, "name": "Southampton", "logo": "https://media.api-sports.io/football/teams/41.png"}, "points": 12, "goalsDiff": -60, "group": "Premier League", "form": "LLDLL", "status": "same", "description": "Relegation", "all": {"played": 38, "win": 2, "draw": 6, "lose": 30, "goals": {"for": 26, "against": 86}}, "home": {"played": 19, "win": 1, "draw": 3, "lose": 15, "goals": {"for": 13, "against": 47}}, "away": {"played": 19, "win": 1, "draw": 3, "lose": 15, "goals": {"for": 13, "against": 39}}, "update": "2025-05-26T00:00:00+00:00"}')
+[2026-04-17T08:43:23.861+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-17T08:43:23.866+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-04-17T08:43:23.880+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ingest_football_data, task_id=ingest_standings, execution_date=20260417T084322, start_date=20260417T084323, end_date=20260417T084323
+[2026-04-17T08:43:23.920+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-17T08:43:23.959+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

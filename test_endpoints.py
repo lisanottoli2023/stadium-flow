@@ -5,7 +5,7 @@ import os
 load_dotenv()
 
 
-url = "https://v3.football.api-sports.io/fixtures/standings"
+url = "https://v3.football.api-sports.io/standings"
 headers = {
     "x-apisports-key": os.getenv("API_KEY")
 }

@@ -1,0 +1,42 @@
+[2026-04-03T19:20:50.705+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingest_football_data.ingest_fixtures manual__2026-04-03T19:20:49.408667+00:00 [queued]>
+[2026-04-03T19:20:50.715+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingest_football_data.ingest_fixtures manual__2026-04-03T19:20:49.408667+00:00 [queued]>
+[2026-04-03T19:20:50.716+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-04-03T19:20:50.733+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): ingest_fixtures> on 2026-04-03 19:20:49.408667+00:00
+[2026-04-03T19:20:50.743+0000] {standard_task_runner.py:60} INFO - Started process 1124 to run task
+[2026-04-03T19:20:50.747+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ingest_football_data', 'ingest_fixtures', 'manual__2026-04-03T19:20:49.408667+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/ingest_football_data.py', '--cfg-path', '/tmp/tmpeft57pl4']
+[2026-04-03T19:20:50.749+0000] {standard_task_runner.py:88} INFO - Job 24: Subtask ingest_fixtures
+[2026-04-03T19:20:50.768+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-04-03T19:20:50.811+0000] {task_command.py:423} INFO - Running <TaskInstance: ingest_football_data.ingest_fixtures manual__2026-04-03T19:20:49.408667+00:00 [running]> on host c07871340f9f
+[2026-04-03T19:20:50.906+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ingest_football_data' AIRFLOW_CTX_TASK_ID='ingest_fixtures' AIRFLOW_CTX_EXECUTION_DATE='2026-04-03T19:20:49.408667+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-03T19:20:49.408667+00:00'
+[2026-04-03T19:20:51.083+0000] {base.py:83} INFO - Using connection ID 'postgres_default' for task execution.
+[2026-04-03T19:20:51.088+0000] {sql.py:450} INFO - Running statement: 
+            INSERT INTO raw.fixtures (fixture_id, league_id, season, match_date, home_team_id, away_team_id, raw_json)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT (fixture_id)
+            DO UPDATE SET raw_json = EXCLUDED.raw_json, ingested_at = NOW()
+            , parameters: (1035037, 39, 2023, '2023-08-11T19:00:00+00:00', 44, 50, '{"fixture": {"id": 1035037, "referee": "C. Pawson", "timezone": "UTC", "date": "2023-08-11T19:00:00+00:00", "timestamp": 1691780400, "periods": {"first": 1691780400, "second": 1691784000}, "venue": {"id": 512, "name": "Turf Moor", "city": "Burnley"}, "status": {"long": "Match Finished", "short": "FT", "elapsed": 90, "extra": null}}, "league": {"id": 39, "name": "Premier League", "country": "England", "logo": "https://media.api-sports.io/football/leagues/39.png", "flag": "https://media.api-sports.io/flags/gb-eng.svg", "season": 2023, "round": "Regular Season - 1", "standings": true}, "teams": {"home": {"id": 44, "name": "Burnley", "logo": "https://media.api-sports.io/football/teams/44.png", "winner": false}, "away": {"id": 50, "name": "Manchester City", "logo": "https://media.api-sports.io/football/teams/50.png", "winner": true}}, "goals": {"home": 0, "away": 3}, "score": {"halftime": {"home": 0, "away": 2}, "fulltime": {"home": 0, "away": 3}, "extratime": {"home": null, "away": null}, "penalty": {"home": null, "away": null}}}')
+[2026-04-03T19:20:51.089+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/ingest_football_data.py", line 61, in ingest_fixtures
+    pg_hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 398, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 453, in _run_command
+    cur.execute(sql_statement, parameters)
+psycopg2.errors.UndefinedTable: relation "raw.fixtures" does not exist
+LINE 2:             INSERT INTO raw.fixtures (fixture_id, league_id,...
+                                ^
+
+[2026-04-03T19:20:51.098+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=ingest_football_data, task_id=ingest_fixtures, execution_date=20260403T192049, start_date=20260403T192050, end_date=20260403T192051
+[2026-04-03T19:20:51.111+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 24 for task ingest_fixtures (relation "raw.fixtures" does not exist
+LINE 2:             INSERT INTO raw.fixtures (fixture_id, league_id,...
+                                ^
+; 1124)
+[2026-04-03T19:20:51.119+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-04-03T19:20:51.151+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
