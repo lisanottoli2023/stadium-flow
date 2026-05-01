@@ -1,0 +1,57 @@
+[2026-05-01T11:29:43.538+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: trigger_dbt_dag.dbt_run manual__2026-05-01T11:29:42.784145+00:00 [queued]>
+[2026-05-01T11:29:43.552+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: trigger_dbt_dag.dbt_run manual__2026-05-01T11:29:42.784145+00:00 [queued]>
+[2026-05-01T11:29:43.552+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-05-01T11:29:43.574+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_run> on 2026-05-01 11:29:42.784145+00:00
+[2026-05-01T11:29:43.585+0000] {standard_task_runner.py:60} INFO - Started process 762 to run task
+[2026-05-01T11:29:43.590+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'trigger_dbt_dag', 'dbt_run', 'manual__2026-05-01T11:29:42.784145+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/trigger_dbt_dag.py', '--cfg-path', '/tmp/tmpucdj_hq7']
+[2026-05-01T11:29:43.593+0000] {standard_task_runner.py:88} INFO - Job 54: Subtask dbt_run
+[2026-05-01T11:29:43.611+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-05-01T11:29:43.658+0000] {task_command.py:423} INFO - Running <TaskInstance: trigger_dbt_dag.dbt_run manual__2026-05-01T11:29:42.784145+00:00 [running]> on host 79b6fce4aee0
+[2026-05-01T11:29:43.768+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='trigger_dbt_dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2026-05-01T11:29:42.784145+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-01T11:29:42.784145+00:00'
+[2026-05-01T11:29:43.769+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-01T11:29:43.770+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt run']
+[2026-05-01T11:29:43.792+0000] {subprocess.py:86} INFO - Output:
+[2026-05-01T11:29:45.306+0000] {subprocess.py:93} INFO - [0m11:29:45  Running with dbt=1.8.7
+[2026-05-01T11:29:45.498+0000] {subprocess.py:93} INFO - [0m11:29:45  Registered adapter: postgres=1.8.2
+[2026-05-01T11:29:45.585+0000] {subprocess.py:93} INFO - [0m11:29:45  Unable to do partial parsing because of a version mismatch
+[2026-05-01T11:29:46.310+0000] {subprocess.py:93} INFO - [0m11:29:46  [[33mWARNING[0m]: Deprecated functionality
+[2026-05-01T11:29:46.310+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2026-05-01T11:29:46.311+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2026-05-01T11:29:46.311+0000] {subprocess.py:93} INFO - information.
+[2026-05-01T11:29:46.561+0000] {subprocess.py:93} INFO - [0m11:29:46  Encountered an error:
+[2026-05-01T11:29:46.562+0000] {subprocess.py:93} INFO - [Errno 13] Permission denied: '/opt/***/dbt/target/partial_parse.msgpack'
+[2026-05-01T11:29:46.562+0000] {subprocess.py:93} INFO - [0m11:29:46  Traceback (most recent call last):
+[2026-05-01T11:29:46.563+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 138, in wrapper
+[2026-05-01T11:29:46.563+0000] {subprocess.py:93} INFO -     result, success = func(*args, **kwargs)
+[2026-05-01T11:29:46.563+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 101, in wrapper
+[2026-05-01T11:29:46.563+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-05-01T11:29:46.563+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 218, in wrapper
+[2026-05-01T11:29:46.563+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-05-01T11:29:46.563+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 247, in wrapper
+[2026-05-01T11:29:46.564+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-05-01T11:29:46.564+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 294, in wrapper
+[2026-05-01T11:29:46.564+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-05-01T11:29:46.564+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 320, in wrapper
+[2026-05-01T11:29:46.564+0000] {subprocess.py:93} INFO -     ctx.obj["manifest"] = parse_manifest(
+[2026-05-01T11:29:46.564+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/parser/manifest.py", line 1898, in parse_manifest
+[2026-05-01T11:29:46.564+0000] {subprocess.py:93} INFO -     manifest = ManifestLoader.get_full_manifest(
+[2026-05-01T11:29:46.564+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/parser/manifest.py", line 330, in get_full_manifest
+[2026-05-01T11:29:46.565+0000] {subprocess.py:93} INFO -     manifest = loader.load()
+[2026-05-01T11:29:46.565+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/parser/manifest.py", line 525, in load
+[2026-05-01T11:29:46.565+0000] {subprocess.py:93} INFO -     self.write_manifest_for_partial_parse()
+[2026-05-01T11:29:46.565+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/dbt/parser/manifest.py", line 813, in write_manifest_for_partial_parse
+[2026-05-01T11:29:46.565+0000] {subprocess.py:93} INFO -     with open(path, "wb") as fp:
+[2026-05-01T11:29:46.565+0000] {subprocess.py:93} INFO - PermissionError: [Errno 13] Permission denied: '/opt/***/dbt/target/partial_parse.msgpack'
+[2026-05-01T11:29:46.565+0000] {subprocess.py:93} INFO - 
+[2026-05-01T11:29:47.560+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-05-01T11:29:47.576+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-05-01T11:29:47.581+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=trigger_dbt_dag, task_id=dbt_run, execution_date=20260501T112942, start_date=20260501T112943, end_date=20260501T112947
+[2026-05-01T11:29:47.597+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 54 for task dbt_run (Bash command failed. The command returned a non-zero exit code 2.; 762)
+[2026-05-01T11:29:47.614+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-05-01T11:29:47.647+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
