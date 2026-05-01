@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: fct_match_results
+    columns:
+      - name: fixture_id
+        tests:
+          - unique
+          - not_null
+  - name: dim_players
+    columns:
+      - name: player_id
+        tests:
+          - unique
+          - not_null
+  - name: mart_team_performance
+    columns:
+      - name: team_id
+        tests:
+          - not_null
+  - name: mart_top_scorers
+    columns:
+      - name: player_id
+        tests:
+          - not_null
